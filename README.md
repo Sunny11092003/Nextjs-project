@@ -1,11 +1,10 @@
-````markdown
 # MyNextJs Landing Page
 
 A modern, responsive, and high-performance landing page built with Next.js and Tailwind CSS.
 
 ---
 
-## Features
+# Features
 - Fully responsive design for mobile, tablet, and desktop.
 - Hero section with optimized background video and images.
 - Animated feature sections using Framer Motion.
@@ -15,13 +14,13 @@ A modern, responsive, and high-performance landing page built with Next.js and T
 
 ---
 
-## Getting Started
+# Getting Started
 
-### Prerequisites
+# Prerequisites
 - Node.js (v18 or above recommended)
 - npm (v9 or above)
 
-### Installation
+# Installation
 1. Clone the repository:
 ```bash
 git clone <your-repo-url>
@@ -49,7 +48,7 @@ npm run dev
 
 ---
 
-## Optimization Techniques Implemented
+# Optimization Techniques Implemented
 
 * Reduced image and video sizes to 300-400 KB for faster loading.
 * Lazy-loaded images using Next.js `Image` component.
@@ -59,25 +58,11 @@ npm run dev
 
 ---
 
-## Lighthouse Performance Scores (Local Testing)
+# Lighthouse Performance Scores (After Deployment)
 
-* **Largest Contentful Paint (LCP):** \~2.8s (improved after image/video optimization)
-* **Cumulative Layout Shift (CLS):** 0
-* **Interaction to Next Paint (INP):** 216 ms
+* **Largest Contentful Paint (LCP):** \~1.3s (improved after image/video optimization)
+* **Cumulative Layout Shift (CLS):** 0.01
+* **Interaction to Next Paint (INP):** 198 ms
 
-> Screenshot or detailed report can be attached here if desired.
+  
 
----
-
-## License
-
-MIT License
-
-```
-
----
-
-I can also make a **shorter version suitable for GitHub display**, including a section for a **Lighthouse screenshot** if you want.  
-
-Do you want me to make that too?
-```
