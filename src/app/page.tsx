@@ -9,7 +9,6 @@ import Footer from "../../components/footer";
 export default function Home() {
   return (
     <>
-      <BackgroundVideo />
 
       <Header />
       <main className="relative z-10">

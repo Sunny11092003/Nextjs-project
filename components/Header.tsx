@@ -1,4 +1,3 @@
-// src/components/Header.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -10,20 +9,22 @@ export default function Header() {
   const [scrollY, setScrollY] = useState(0);
   const [hidden, setHidden] = useState(false);
 
-  // Detect scroll direction
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > scrollY && window.scrollY > 100) {
-        setHidden(true); // scrolling down
+        setHidden(true);
       } else {
-        setHidden(false); // scrolling up
+        setHidden(false);
       }
       setScrollY(window.scrollY);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrollY]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+  }, [menuOpen]);
 
   const menuVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -37,12 +38,12 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-md z-50 transition-transform"
+      className="fixed top-0 left-0 w-full overflow-x-hidden bg-white/90 backdrop-blur-md shadow-md z-50 transition-transform"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: hidden ? -100 : 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 box-border">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -105,19 +106,9 @@ export default function Header() {
                 viewBox="0 0 24 24"
               >
                 {menuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -129,7 +120,7 @@ export default function Header() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="md:hidden bg-white/95 backdrop-blur-md shadow-md origin-top"
+            className="md:hidden w-full bg-white/95 backdrop-blur-md shadow-md origin-top"
             initial={{ opacity: 0, scaleY: 0 }}
             animate={{ opacity: 1, scaleY: 1 }}
             exit={{ opacity: 0, scaleY: 0 }}
@@ -144,11 +135,7 @@ export default function Header() {
             >
               {["Features", "About", "Contact"].map((item) => (
                 <motion.div key={item} variants={itemVariants}>
-                  <Link
-                    href={`#${item.toLowerCase()}`}
-                    className="text-gray-700 hover:text-blue-600 transition"
-                    onClick={() => setMenuOpen(false)}
-                  >
+                  <Link href={`#${item.toLowerCase()}`} className="text-gray-700 hover:text-blue-600 transition" onClick={() => setMenuOpen(false)}>
                     {item}
                   </Link>
                 </motion.div>
