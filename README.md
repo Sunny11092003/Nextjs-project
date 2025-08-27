@@ -64,5 +64,11 @@ npm run dev
 * **Cumulative Layout Shift (CLS):** 0.01
 * **Interaction to Next Paint (INP):** 198 ms
 
+# Screenshot of Lighthouse Performance Scores 
+
+![Desktop Lighthouse](assests/Lighthouse_performance(Desktop).png)
+![Mobile Lighthouse](assests/Lighthouse_performance(Mobile).png)
+![Another Screenshot](assests/Lighthouse_performance1(Desktop).png)
+
   
 
