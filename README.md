@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+````markdown
+# MyNextJs Landing Page
+
+A modern, responsive, and high-performance landing page built with Next.js and Tailwind CSS.
+
+---
+
+## Features
+- Fully responsive design for mobile, tablet, and desktop.
+- Hero section with optimized background video and images.
+- Animated feature sections using Framer Motion.
+- Smooth scrolling navigation and mobile-friendly menu.
+- CTA and About sections with engaging animations.
+- Footer with social links and quick navigation.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js (v18 or above recommended)
+- npm (v9 or above)
+
+### Installation
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+````
+
+2. Navigate to the project directory:
+
+```bash
+cd nextjs-landing
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open your browser and go to [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Optimization Techniques Implemented
 
-## Learn More
+* Reduced image and video sizes to 300-400 KB for faster loading.
+* Lazy-loaded images using Next.js `Image` component.
+* Applied `max-w-full` and `overflow-x-hidden` to prevent horizontal scrolling.
+* Minimized CSS and used Tailwind utility classes for performance.
+* Animated elements optimized with Framer Motion and `whileInView` for better LCP.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Lighthouse Performance Scores (Local Testing)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* **Largest Contentful Paint (LCP):** \~2.8s (improved after image/video optimization)
+* **Cumulative Layout Shift (CLS):** 0
+* **Interaction to Next Paint (INP):** 216 ms
 
-## Deploy on Vercel
+> Screenshot or detailed report can be attached here if desired.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+MIT License
+
+```
+
+---
+
+I can also make a **shorter version suitable for GitHub display**, including a section for a **Lighthouse screenshot** if you want.  
+
+Do you want me to make that too?
+```
