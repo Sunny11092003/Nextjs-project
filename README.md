@@ -23,7 +23,7 @@ A modern, responsive, and high-performance landing page built with Next.js and T
 # Installation
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Sunny11092003/Nextjs-project
 ````
 
 2. Navigate to the project directory:
