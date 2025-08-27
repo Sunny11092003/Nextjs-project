@@ -9,6 +9,7 @@ export default function Header() {
   const [scrollY, setScrollY] = useState(0);
   const [hidden, setHidden] = useState(false);
 
+  // Hide header on scroll down
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > scrollY && window.scrollY > 100) {
@@ -22,6 +23,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrollY]);
 
+  // Disable body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
@@ -38,12 +40,13 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 w-full overflow-x-hidden bg-white/90 backdrop-blur-md shadow-md z-50 transition-transform"
+      className="fixed top-0 left-0 w-full max-w-full overflow-x-hidden bg-white/90 backdrop-blur-md shadow-md z-50 transition-transform box-border"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: hidden ? -100 : 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 box-border">
+      {/* Inner Container */}
+      <div className="max-w-full w-full mx-auto px-4 sm:px-6 lg:px-8 box-border overflow-x-hidden">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -86,7 +89,7 @@ export default function Header() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <Link href="#get-started">
-              <button className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">
+              <button className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition box-border">
                 Get Started
               </button>
             </Link>
@@ -96,7 +99,7 @@ export default function Header() {
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600 p-2 box-border"
               aria-label="Toggle Menu"
             >
               <svg
@@ -106,9 +109,19 @@ export default function Header() {
                 viewBox="0 0 24 24"
               >
                 {menuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 )}
               </svg>
             </button>
@@ -120,7 +133,7 @@ export default function Header() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="md:hidden w-full bg-white/95 backdrop-blur-md shadow-md origin-top"
+            className="md:hidden w-full max-w-full box-border bg-white/95 backdrop-blur-md shadow-md origin-top overflow-x-hidden"
             initial={{ opacity: 0, scaleY: 0 }}
             animate={{ opacity: 1, scaleY: 1 }}
             exit={{ opacity: 0, scaleY: 0 }}
@@ -135,14 +148,18 @@ export default function Header() {
             >
               {["Features", "About", "Contact"].map((item) => (
                 <motion.div key={item} variants={itemVariants}>
-                  <Link href={`#${item.toLowerCase()}`} className="text-gray-700 hover:text-blue-600 transition" onClick={() => setMenuOpen(false)}>
+                  <Link
+                    href={`#${item.toLowerCase()}`}
+                    className="text-gray-700 hover:text-blue-600 transition"
+                    onClick={() => setMenuOpen(false)}
+                  >
                     {item}
                   </Link>
                 </motion.div>
               ))}
               <motion.div variants={itemVariants}>
                 <Link href="#get-started" onClick={() => setMenuOpen(false)}>
-                  <button className="bg-blue-600 text-white w-full py-2 rounded-lg hover:bg-blue-700 transition">
+                  <button className="bg-blue-600 text-white w-full py-2 rounded-lg hover:bg-blue-700 transition box-border">
                     Get Started
                   </button>
                 </Link>
